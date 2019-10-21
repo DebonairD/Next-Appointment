@@ -6,14 +6,14 @@ const ShowNextAppointment=(props)=>{
 
 	React.useEffect(()=>{
 		const id = props.match.params.id;
-		fetch("http://localhost:8080/nextAppointment/" + id)
+		fetch("http://NextAppointment.cfapps.io/" + id)
 			.then((res)=>res.json())
 			.then((appointmentRes)=>{
 					setAppointment(appointmentRes);
 			})
 	}, [props.match]);
 	const deleteNextAppointment=(id)=>{
-		fetch("http://localhost:8080/nextAppointment/" + id, {
+		fetch("http://NextAppointment.cfapps.io/nextAppointment/" + id, {
 			method: 'delete'
 		}).then(()=>{
 			props.fetchAppointments();
@@ -22,18 +22,17 @@ const ShowNextAppointment=(props)=>{
 }
 
 	return(
-			<ul>
-				<div>
-				<li> Service(s): {appointment.service}</li>
-				<li> Name: {appointment.name}</li>
-				<li> Date: {appointment.date}</li>
-				<li> Time: {appointment.time}</li>
-				<li> Total: {appointment.amount}</li>
-				<li> Location: {appointment.location}</li>
-				<button onClick={()=>deleteNextAppointment(appointment.id)}>Delete</button>
-				<Link to={"/edit/nextAppointment/" + appointment.id}><button>Edit</button></Link>
-				</div>
-			</ul>
+		<div>
+			<div className="form-div"> Service(s): {appointment.service}</div>
+			<div className="form-div"> Name: {appointment.name}</div>
+			<div className="form-div"> Date: {appointment.date}</div>
+			<div className="form-div"> Time: {appointment.time}</div>
+			<div className="form-div"> Total: {appointment.amount}</div>
+			<div className="form-div"> Location: {appointment.location}</div>
+			<button className="delete-button" onClick={()=>deleteNextAppointment(appointment.id)}>Delete</button>
+			<Link to={"/edit/nextAppointment/" + appointment.id}><button>Edit</button></Link>
+		</div>
+			
 	)
 }
 

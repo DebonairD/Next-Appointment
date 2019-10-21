@@ -27,3 +27,22 @@
   width: 70vw;
 }
 
+.form-div {
+  margin-left: 50px;
+}
+
+.form-button {
+  margin-top: 20px;
+  margin-left: 90px;
+}
+
+.delete-button{
+  margin-top: 20px;
+  margin-left: 50px;
+
+}
+
+body {
+  background-image: url(https://image.shutterstock.com/image-photo/combs-hairdresser-tools-on-white-260nw-525858217.jpg);
+  background-size: cover;
+}

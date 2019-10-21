@@ -13,7 +13,7 @@ class App extends React.Component{
       }
     }
     fetchAppointments=()=>{
-      fetch("http://localhost:8080/nextAppointments")
+      fetch("http://NextAppointment.cfapps.io/nextAppointments")
       .then((res)=>res.json())
       .then((appointments)=>{
         this.setState({nextAppointments: appointments})
@@ -26,14 +26,12 @@ class App extends React.Component{
   return (
     <Router>
       <nav>
-        <ul>
-         <li>
+        <div>
           <Link to="/">Appointments</Link>
-         </li>
-         <li>
+         </div>
+         <div>
           <Link to="/create">Create</Link>
-         </li>
-        </ul>
+         </div>
       </nav>
         <div id= "content_body">
           <Switch>

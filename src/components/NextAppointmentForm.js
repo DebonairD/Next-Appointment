@@ -27,7 +27,7 @@ const  onAmountInput=(e)=>{
 	setAmount(e.target.value);
 }
 const handleCreateClick=()=>{
-	fetch('http://localhost:8080/nextAppointment', {
+	fetch('http://NextAppointment.cfapps.io/nextAppointment', {
 		method:'post',
 		headers: {
 			"Content-Type": "application/json"
@@ -53,7 +53,7 @@ const handleCreateClick=()=>{
 }
 const handleUpdateClick=()=>{
 
-	fetch('http://localhost:8080/nextAppointment/' + id, {
+	fetch('http://NextAppointment.cfapps.io/nextAppointment/' + id, {
 		method:'put',
 		headers: {
 			"Content-Type": "application/json"
@@ -84,21 +84,21 @@ React.useEffect(()=>{
 }, [props.match])
 let buttonAction;
 if(id){
-	buttonAction = <button onClick={handleUpdateClick}>Update</button>
+	buttonAction = <button className="form-button" onClick={handleUpdateClick}>Update</button>
 } else {
-	buttonAction = <button onClick={handleCreateClick}>Create</button>	
+	buttonAction = <button className="form-button" onClick={handleCreateClick}>Create</button>	
 }
 return(
 	<div>
 		<h1>Next Appointment Form</h1>
-		  <ul>
-			<li><input type ="text" value={service}  onChange={onServiceInput}  placeholder = "Service"/></li>
-			<li><input type ="text" value={name}     onChange={onNameInput}     placeholder = "Name"/></li>
-			<li><input type ="text" value={location} onChange={onLocationInput} placeholder = "Location"/></li>
-			<li><input type ="text" value={date}     onChange={onDateInput}     placeholder = "Date"/></li>
-			<li><input type ="text" value={time}     onChange={onTimeInput}     placeholder = "Time"/></li>
-			<li><input type ="text" value={amount}   onChange={onAmountInput}   placeholder = "Amount"/></li>
-		  </ul>
+		  
+			<div className="form-div"><input type ="text" value={service}  onChange={onServiceInput}  placeholder = "Service"/></div>
+			<div className="form-div"><input type ="text" value={name}     onChange={onNameInput}     placeholder = "Name"/></div>
+			<div className="form-div"><input type ="text" value={location} onChange={onLocationInput} placeholder = "Location"/></div>
+			<div className="form-div"><input type ="text" value={date}     onChange={onDateInput}     placeholder = "Date"/></div>
+			<div className="form-div"><input type ="text" value={time}     onChange={onTimeInput}     placeholder = "Time"/></div>
+			<div className="form-div"><input type ="text" value={amount}   onChange={onAmountInput}   placeholder = "Amount"/></div>
+		  
 		 {buttonAction}
 	</div>	
 	)

@@ -5,15 +5,15 @@ const ShowNextAppointments=(props)=>{
 	let nextAppointmentsElArr = props.nextAppointments.map((appointment, index)=>{
 		return (
 			<Link to= {"/nextAppointment/" + appointment.id} key = {index}>
-				<ul>
+				
 					<h1> Next Appointment </h1>
-					<li>  {appointment.service}</li>
-					<li>  {appointment.name}</li>
-					<li>  {appointment.date}</li>
-					<li>  {appointment.time}</li>
-					<li>  {appointment.amount}</li>
-					<li>  {appointment.location}</li>
-				</ul>
+					<div className="form-div"> Service: {appointment.service}</div>
+					<div className="form-div"> Name: {appointment.name}</div>
+					<div className="form-div"> Date: {appointment.date}</div>
+					<div className="form-div"> Time:{appointment.time}</div>
+					<div className="form-div"> Amount: {appointment.amount}</div>
+					<div className="form-div"> Location: {appointment.location}</div>
+				
 			</Link>
 		)
 	})
