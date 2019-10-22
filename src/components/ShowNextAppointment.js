@@ -6,14 +6,14 @@ const ShowNextAppointment=(props)=>{
 
 	React.useEffect(()=>{
 		const id = props.match.params.id;
-		fetch("http://NextAppointment.cfapps.io/" + id)
+		fetch("http://nextappointment.cfapps.io/" + id)
 			.then((res)=>res.json())
 			.then((appointmentRes)=>{
 					setAppointment(appointmentRes);
 			})
 	}, [props.match]);
 	const deleteNextAppointment=(id)=>{
-		fetch("http://NextAppointment.cfapps.io/nextAppointment/" + id, {
+		fetch("http://nextappointment.cfapps.io/nextAppointment/" + id, {
 			method: 'delete'
 		}).then(()=>{
 			props.fetchAppointments();
